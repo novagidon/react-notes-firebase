@@ -20,12 +20,11 @@
 }
 
 .noteInput{
-    width: 800px;
-    min-width: 800px;
+    width: 40%;
+    min-width: 30%;
     font-size: 1.3em;
     padding-left: 20px;
-    border-top-left-radius: 4px;
-    border-bottom-left-radius: 4px;
+    border-radius: 10px;
     font-family: 'Droid Sans', sans-serif;
     background-color: rgba(34,49,63,0.8);
     color: #fff;

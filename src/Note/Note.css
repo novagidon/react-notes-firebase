@@ -24,6 +24,7 @@
 }
 
 .noteContent{
+  width: 100%;
   float:left;
   padding-right: 70px;
   padding-bottom: 10px;

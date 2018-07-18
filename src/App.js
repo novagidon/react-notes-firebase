@@ -38,7 +38,9 @@ class App extends Component {
     this.database.on('child_added', snap => {
       previousNotes.push({
         id: snap.key,
-        noteContent: snap.val().noteContent
+        noteContent: snap.val().noteContent,
+        noteName: snap.val().noteName,
+        noteDate: snap.val().noteDate
       })
 
       this.setState({
@@ -70,8 +72,8 @@ class App extends Component {
     })
   }
 
-  addNote(note){
-    this.database.push().set({ noteContent: note})
+  addNote(note,title,date){
+    this.database.push().set({ noteContent: note, noteName: title, noteDate: date})
   }
   addUser(user,pass){
     this.userbase.push().set({ nameAndPass: user+pass})
@@ -92,7 +94,7 @@ class App extends Component {
   }
 
   removeNote(noteId){
-   this.state.logIn? this.database.child(noteId).remove(): alert ("login for delete note!")
+   this.state.logIn ? this.database.child(noteId).remove() : alert ("login for delete note!")
   }
 
   render() {
@@ -107,6 +109,8 @@ class App extends Component {
             this.state.notes.map((note) => {
               return (
                 <Note noteContent={note.noteContent} 
+                noteName={note.noteName}
+                noteDate={note.noteDate}
                 noteId={note.id} 
                 key={note.id} 
                 removeNote ={this.removeNote}
